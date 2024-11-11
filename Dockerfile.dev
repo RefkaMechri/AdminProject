@@ -1,0 +1,14 @@
+ FROM node:alpine
+
+ WORKDIR '/app'
+
+ COPY package.json .
+ RUN npm install
+
+ #install Nodemon
+ RUN npm install -g nodemon
+ RUN npm install supertest 
+ RUN npm install -g jest
+ COPY . .
+
+ CMD ["npm","run","dev"]
